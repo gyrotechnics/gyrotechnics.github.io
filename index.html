@@ -2,56 +2,240 @@
 <head>
   <title>Gyrotechnics - Make Things for People</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Contrail+One|VT323" rel="stylesheet">
+
   <style>
     body {
-      font-size: 13px;
-      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
-      font-size: 13px;
-      line-height: 1.5;
-      color: #39464e;
+      padding: 64px 128px;
+      background: #F2D79B;
+      color: #342E21;
+      font-family: 'Contrail One', cursive;
+      text-transform: lowercase;
     }
 
-    h1, h2, h3 {
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .icon {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .solid {
+      background: #342E21;
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .rotator {
+      box-sizing: border-box;
+      position: absolute;
+      top: 33%;
+      left: 33%;
+      width: 34%;
+      height: 34%;
+      border-radius: 50%;
+    }
+
+    .blue {
+      background: #EEC061;
+    }
+
+    .yellow {
+      background: #EEC061;
+    }
+
+    .icon-parent {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .icon {
+      flex: none;
+    }
+
+    .icon .vertical {
+      animation: spinA 1500ms infinite ease-in-out alternate;
+    }
+
+    .icon .horizontal {
+      animation: spinA 1500ms infinite ease-in-out alternate-reverse;
+    }
+
+    .icon-parent {
+      /* animation: bigSpin 3500ms infinite linear alternate-reverse; */
+    }
+
+    .central-dot {
+      width: 6%;
+      height: 6%;
+      top: 47%;
+      left: 47%;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .central-dot.one {
+      animation: spinA 1500ms infinite ease-in-out alternate-reverse;
+    }
+
+    .central-dot.two {
+      animation: spinA 1500ms infinite ease-in-out alternate;
+    }
+
+    @keyframes bigSpin {
+      100% {
+        transform: rotate(180deg);
+      }
+    }
+
+    @keyframes spinA {
+      0% {
+        transform: rotate3d(0.5, 0, 0.5, -90deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate3d(-0.5, 0, 0.5, 90deg);
+        opacity: 0.5;
+      }
+    }
+
+    header {
+      position: relative;
+      width: 508px;
+      height: 160px;
+      padding: 0 16px;
+      overflow: hidden;
+
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    .header-one, .header-two {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      top: 0%;
+    }
+
+    .header-one, .header-two .icon {
+      margin-left: 48px;
+    }
+
+    .header-one {
+      background: #F2D79B;
+      color: #342E21;
+      width: 100%;
+      height: 100%;
+    }
+
+    .header-two {
+      background: #342E21;
+      color: #F2D79B;
+      width: 0%;
+      height: 100%;
+      overflow: hidden;
+      transition: width 500ms;
+    }
+
+    header:hover {
+      cursor: pointer;
+    }
+
+    header:hover .header-two { 
+      width: 100%;
+      transition: width 350ms;
+    }
+
+    /* header .header-two {
+      animation: slidesy-out 750ms 0ms forwards ease-in-out;
+    }
+
+
+    header:hover .header-two {
+      animation: slidesy-in 750ms 0ms forwards ease-in-out;
+    } */
+
+    .header-two .solid {
+      background: #F2D79B;
+    }
+
+    .header-two .blue {
+      background: #342E21;
+    }
+
+    .header-two .yellow {
+      background: #342E21;
     }
 
     h1 {
-      font-size: 1em;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+      font-size: 64px;
+      margin-left: 24px;
     }
 
-    h2 {
-      font-size: 1em;
+    main {
+      margin-left: 64px;
     }
 
-    .container {
-      max-width: 340px;
-      padding: 16px;
-      margin: 128px auto;
+    .deets {
+      text-transform: uppercase;
+      font-family: 'VT323', monospace;
+      margin-top: 64px;
+      margin-left: 24px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Gyrotechnics – Make Things for People</h1>
+  
+  <header>
+  <div class="header-one">
+      <div class="icon">
+        <div class="solid"></div>
+        <div class="icon-parent">
+          <div class="rotator octagon vertical blue"></div>
+          <div class="rotator horizontal yellow"></div>
+        </div>
+      </div>
+    
+      <h1>Gyrotechnics</h1>
+    </div>
 
-    <p>
-      <br/>
-      Gyrotechnics is a software company based in Australia.
-      <br/><br/>
-    </p>
+    <div class="header-two">
+      <div class="icon">
+        <div class="solid"></div>
+        <div class="icon-parent">
+          <div class="rotator octagon vertical blue"></div>
+          <div class="rotator horizontal yellow"></div>
+        </div>
+      </div>
+    
+      <h1>Gyrotechnics</h1>
+    </div>
+  </header>
 
-    <p>We make things for people. 
+  <main>
+    <h2>→ Make Things for People</h2>
+    <h2>→ Based in Sydney</h2>
+    <h2>→ tell-a-friend software for small businesses</h2>
 
-    <p>Right now, we’re working on refer-a-friend marketing software 
-      for small to medium businesses.
-
-<br/><br/><br/><br/>
-    <h2>Gyrotechnics Group Pty Ltd</h2>
-    <p><strong>ACN</strong> 628 518 052</p>
-    <p><strong>ABN</strong> 88 628 518 052</p>
-    <p><strong>Email</strong> matt@matthewpalmer.net</p>
-    <p><strong>Phone</strong> +61 432 428 567</p>
-  </div>
+    <div class="deets">
+      <p>Gyrotechnics Group Pty Ltd</p>
+      <p>ACN     628 518 052</p>
+      <p>ABN  88 628 518 052</p>
+      <p>EM: matt@matthewpalmer.net</p>
+      <p>PH: +61 432 428 567</p>
+      <br />
+      <p>Mother’s Maiden Name: b r a -- just kidding. don't steal our identity.</p>
+    </div>
+  </main>
 </body>
 </html>
